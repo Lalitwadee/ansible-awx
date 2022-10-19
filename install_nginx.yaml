@@ -1,6 +1,6 @@
 
 - name: Configure Webserver with NGINX
-  hosts: 172.31.95.165
+  hosts: 172.31.80.199
   become: True
   tasks:
     - name: Install NGINX
@@ -16,11 +16,3 @@
       template: src=~/ansible_tutorial/files/index.html.j2 dest=/usr/share/nginx/html/index.html mode=0644
     - name: Restart NGINX Service
       service: name=nginx state=restarted
-
-- name: Call Roles
-  hosts: 172.31.95.165
-  roles:
-   #- hostname
-   #- firewalld
-   #- ntp-config
-   - motd
