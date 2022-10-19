@@ -1,21 +1,29 @@
-
-- name: Configure Webserver with NGINX
+-
+  name: Deploying nginx webserver
   hosts: 172.31.80.199
-  become: True
   tasks:
-    - name: Install NGINX
-      apt: name=nginx update_cache=yes
-    - name: Copy NGINX Config File
-      copy: src=~/ansible_tutorial/files/nginx.conf dest=/etc/nginx/sites-available/default
-    - name: Enable Configuration
-      file: >
-        dest=/etc/nginx/sites-enabled/default
-        src=/etc/nginx/sites-available/default
-        state=link
-    - name: Render index.html and copy it
-      template: src=~/ansible_tutorial/files/index.html.j2 dest=/usr/share/nginx/html/index.html mode=0644
-    - name: Restart NGINX Service
-      service: name=nginx state=restarted
+    - name: Install nginx latest version and start service
+      apt:
+       name: nginx
+       state: latest
+    - name: Start nginx service
+      ansible.builtin.service:
+       name: nginx
+       state: started
+    - name: Allow Uncomplicated Firewall for nginx
+      ufw:
+       rule: allow
+       port: 80
+       proto: tcp
+    - name: Copy newindex.html to public index.html
+      ansible.builtin.copy:
+       src: /root/ansiblelab/newindex.html
+       dest: /var/www/html/index.nginx-debian.html
+       follow: yes
+    - name: Reload nginx webserver
+      ansible.builtin.service:
+       name: nginx
+       state: reloaded
 
 - name: Call Roles
   hosts: 172.31.80.199
