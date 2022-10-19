@@ -1,12 +1,12 @@
 # Playbook to call multiple roles to configure systems
 - name: Configure systems
-  hosts: 54.211.166.118
+  hosts: 172.31.80.196
   become: yes
 
   tasks:
 
 - name: Call Roles
-  hosts: 54.211.166.118
+  hosts: 172.31.80.196
   roles:
    #- hostname
    #- firewalld
