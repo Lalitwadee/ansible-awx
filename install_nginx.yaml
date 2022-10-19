@@ -10,10 +10,6 @@
       ansible.builtin.service:
        name: nginx
        state: started
-    - name: Reload nginx webserver
-      ansible.builtin.service:
-       name: nginx
-       state: reloaded
 
 - name: Call Roles
   hosts: 172.31.80.199
