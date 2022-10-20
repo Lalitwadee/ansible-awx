@@ -1,4 +1,4 @@
-- hosts: 172.31.95.165
+- hosts: apache_nodes
   remote_user: ec2-user
   become: yes
   become_method: sudo
