@@ -1,6 +1,6 @@
 -
   name: Deploying nginx webserver
-  hosts: 172.31.80.199
+  hosts: nginx_nodes
   become: yes
   tasks:
     - name: Install nginx latest version and start service
@@ -13,7 +13,7 @@
        state: started
 
 - name: Call Roles
-  hosts: 172.31.80.199
+  hosts: nginx_nodes
   roles:
    #- hostname
    #- firewalld
