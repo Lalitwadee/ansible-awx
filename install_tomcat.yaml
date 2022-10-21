@@ -18,11 +18,11 @@
        
   - name: extract tomcat packages
     unarchive:
-      src: /usr/local{{ tomcat_package }}.tar.gz
+      src: /usr/local/{{ tomcat_package }}.tar.gz
       dest: /usr/local
       remote_src: yes
 
   - name: start tomcat services
-    shell: nohup /usr/local{{ tomcat_package }}/bin/startup.sh
+    shell: nohup /usr/local/{{ tomcat_package }}/bin/startup.sh
       
       
