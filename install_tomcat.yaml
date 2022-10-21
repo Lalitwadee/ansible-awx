@@ -1,9 +1,9 @@
-- 
-  name : install tomcat server
-  remote_user: ec2-user
-  hosts: apache_nodes
-  become: yes
 
+
+- hosts: apache_nodes
+  remote_user: ec2-user
+  become: yes
+  become_method: sudo
   vars_files:
     - tomcat_vars
     
