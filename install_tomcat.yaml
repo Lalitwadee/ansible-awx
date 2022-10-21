@@ -1,0 +1,4 @@
+---
+- name : install tomcat server
+  host: apache_node
+  become: true
