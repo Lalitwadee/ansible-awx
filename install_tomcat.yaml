@@ -1,4 +1,4 @@
----
+-
 - name : install tomcat server
   remote_user: ec2-user
   host: apache_nodes
