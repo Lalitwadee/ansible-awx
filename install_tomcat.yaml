@@ -11,7 +11,7 @@
       name: java
       state: latest
        
-  - name: dowmload tomcat server packages
+  - name: download tomcat server packages
     get_url:
       url: "{{ tomcat_url }}"
       dest: /usr/local
