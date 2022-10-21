@@ -3,9 +3,8 @@
   remote_user: ec2-user
   host: apache_nodes
   become: true
-  vars:
-    - tomcat_url: http://mirrors.estointernet.in/apache/tomcat/tomcat-10/v10.0.20/bin/apache-tomcat-10.0.20.tar.gz
-    - tomcat_package: apache-tomcat-10.0.20
+  vars_files:
+    - tomcat_vars
     
   tasks:
   - name: install java
