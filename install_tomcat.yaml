@@ -3,7 +3,6 @@
   remote_user: ec2-user
   hosts: apache_nodes
   become: true
-  become_method: sudo
   vars_files:
     - tomcat_vars
     
